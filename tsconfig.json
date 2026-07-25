@@ -15,10 +15,10 @@
     "module": "preserve",
     "paths": {
       "@app/*": ["./src/app/*"],
-      "@pages": ["./src/app/pages/*"],
+      "@pages/*": ["./src/app/pages/*"],
       "@features/*": ["./src/app/features/*"],
       "@shared/*": ["./src/app/shared/*"],
-      "@widgets": ["./src/app/widgets/*"]
+      "@widgets/*": ["./src/app/widgets/*"]
     }
   },
   "angularCompilerOptions": {
