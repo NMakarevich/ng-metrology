@@ -15,4 +15,5 @@
   <button matButton="filled" type="submit" [disabled]="form()().submitting() || form()().invalid()">
     {{ submitButtonText() }}
   </button>
+  <mat-error class="form-error">{{ form()().errors()[0]?.message }}</mat-error>
 </form>
