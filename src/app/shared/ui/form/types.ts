@@ -43,4 +43,6 @@ export interface TextAreaFieldInterface extends CommonFieldInterface {
 
 export type FieldType = InputFieldInterface | SelectFieldInterface | TextAreaFieldInterface;
 
-export type FormFields<T> = Record<keyof T, FieldType>;
+export type FormFields<T> = {
+  [K in keyof T]: T[K] extends object ? FormFields<T[K]> : FieldType;
+};
