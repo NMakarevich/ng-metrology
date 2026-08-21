@@ -1,0 +1,39 @@
+<mat-form-field [class]="field().class ?? ''">
+  @if (field().label) {
+    <mat-label>{{ field().label }}</mat-label>
+  }
+  <input
+    matInput
+    [type]="type()"
+    [id]="field().id"
+    [placeholder]="field().placeholder ?? ''"
+    [formField]="field().formField"
+  />
+  @if (isPassword()) {
+    <button matIconButton matIconSuffix type="button" (click)="togglePassword()">
+      <mat-icon>{{ passwordIcon() }}</mat-icon>
+    </button>
+  }
+  @if (hasIcon()) {
+    @if (field().icon?.isButton) {
+      @if (field().icon?.position === 'prefix') {
+        <button matIconButton matIconPrefix type="button" (click)="field().icon?.callback()">
+          <mat-icon>{{ field().icon?.name }}</mat-icon>
+        </button>
+      } @else {
+        <button matIconButton matIconSuffix type="button" (click)="field().icon?.callback()">
+          <mat-icon>{{ field().icon?.name }}</mat-icon>
+        </button>
+      }
+    } @else {
+      @if (field().icon?.position === 'prefix') {
+        <mat-icon matIconPrefix>{{ field().icon?.name }}</mat-icon>
+      } @else {
+        <mat-icon matIconSuffix>{{ field().icon?.name }}</mat-icon>
+      }
+    }
+  }
+  <mat-error>
+    {{ field().formField().errors()[0]?.message }}
+  </mat-error>
+</mat-form-field>

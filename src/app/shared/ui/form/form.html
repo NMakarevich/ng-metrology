@@ -1,0 +1,19 @@
+<form class="form" [formRoot]="form()">
+  @for (field of fields(); track field.id) {
+    @switch (field.tag) {
+      @case ('input') {
+        <app-input-field [field]="field" />
+      }
+      @case ('textarea') {
+        <app-textarea-field [field]="field" />
+      }
+      @case ('select') {
+        <app-select-field [field]="field" />
+      }
+    }
+  }
+  <button matButton="filled" type="submit" [disabled]="form()().submitting() || form()().invalid()">
+    {{ submitButtonText() }}
+  </button>
+  <mat-error class="form-error">{{ form()().errors()[0]?.message }}</mat-error>
+</form>

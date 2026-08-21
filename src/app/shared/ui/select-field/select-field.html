@@ -1,0 +1,10 @@
+<mat-form-field [class]="field().class ?? ''">
+  @if (field().label) {
+    <mat-label>{{ field().label }}</mat-label>
+  }
+  <mat-select [formField]="field().formField">
+    @for (option of field().options; track option.value) {
+      <mat-option [value]="option.option">{{ option.value }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
