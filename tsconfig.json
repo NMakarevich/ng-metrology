@@ -18,7 +18,8 @@
       "@pages/*": ["./src/app/pages/*"],
       "@features/*": ["./src/app/features/*"],
       "@shared/*": ["./src/app/shared/*"],
-      "@widgets/*": ["./src/app/widgets/*"]
+      "@widgets/*": ["./src/app/widgets/*"],
+      "@core/*": ["./src/app/core/*"]
     }
   },
   "angularCompilerOptions": {
